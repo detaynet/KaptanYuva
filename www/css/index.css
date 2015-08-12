@@ -1,0 +1,145 @@
+@charset "utf-8";
+/* CSS Document */
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent;
+  font-weight:normal;
+}
+
+* { -webkit-tap-highlight-color: rgba(0,0,0,0); }
+img { display:block; width:calc(100% \ 9); max-width:100%;  height:auto; }
+
+html { width:100%; height:100%; } 
+body {
+    -webkit-touch-callout: none;
+    -webkit-text-size-adjust: none;
+    -webkit-user-select: none;
+    background:#0e578e;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:100%;
+    width:100%;
+	height:100%;
+}
+
+.clear { clear:both; }
+.app { width:100%; height:100%; background:url(../img/bg.jpg) no-repeat;  background-size:100% 100%; overflow:hidden; }
+
+.login { width:100%; height:100%; background:url(../img/bg.jpg) no-repeat;  background-size:100% 100%; overflow:hidden; }
+.logHeader { width:100%; }
+.logLogo { position:fixed; z-index:998; background:url(../img/logo.png) #fff no-repeat center center; border-radius:6px; width:80%; height:6em; left:50%; top:1em; margin:0px 0px 0px -40%; background-size:auto 90%; }
+.logRedline { width:100%; height:2em; background:#af0101; }
+.logWhiteLine { width:100%; height:3em; background:#ffffff; }
+.logForm { position:fixed; z-index:999; background:#fff; border-radius:6px; width:80%; height:14em; left:50%; top:50%; margin:-7em 0px 0px -40%; }
+.loginHead { text-align:center; padding:1em 0px 1em 0px; color:#507498; font-size:120%; font-weight:700; }
+.logFooter { position:fixed; z-index:998; bottom:0px; width:100%; height:5em; background:#fff; }
+.langFlags { padding:0.7em 0px 1em 0px; text-align:center; position:absolute; z-index:2; left:50%; margin-left:-80px; }
+.langFlags img { margin-left:2em; cursor:pointer; float:left; }
+.langFlags img:nth-child(1) { margin-left:0em; }
+.logKaptanLink { width:100%; text-align:center; padding:1em 0px 0px 0px; margin:2em 0px 0px 0px; }
+.logKaptanLink a { color:#af0101; font-size:100%; text-decoration:none; }
+.logKaptanLink a:hover { color:#000; text-decoration:none; }
+.login_user { background:url(../img/log_user.png) no-repeat; background-size:100% 100%; border:0px; width:80%; height:2.2em; padding:0px 0px 0px 3.5em; color:#000; margin:0px 0px 1em 10%; }
+.login_pass { background:url(../img/log_pass.png) no-repeat; background-size:100% 100%; border:0px; width:80%; height:2.2em; padding:0px 0px 0px 3.5em; color:#000; margin:0px 0px 1em 10%; }
+.login_sbmt { background:url(../img/log_submit.png) no-repeat; background-size:100% 100%; border:0px; width:80%; height:2.2em; color:#fff; margin:0px 0px 1em 10%; outline:none; }
+
+/* INDEX */
+.head { width:100%; }
+.redLine { width:100%; height:2em;  background:#af0101; }
+.whiteLine { width:100%; height:3em; background:#ffffff;  } 
+.whiteLine span { display:table-cell; height:3em; font-size:120%; color:#507498;  padding:0.5em 1.5em 0px 0px; float:right; }
+.userImg { position:fixed; z-index:999; width:80px; height:80px; margin:1em 0px 0px 1em; border:0.3em solid #fff; border-radius:6px; background-size:100% auto; background-position:center center; }
+.index { width:100%; position:fixed; z-index:2; top:5em; bottom:3em; left:0em; right:0em; overflow:auto; }
+.footer { background:url(../img/footerLogo.jpg) #fff no-repeat center center; background-size:auto 70%; position:fixed; z-index:2; bottom:0px; left:0px; right:0px; height:3em; }
+.home { width:24px; height:24px; float:right; margin:5px 10px 0px 0px; background:url(../img/home.png) no-repeat center center; }
+/* MAIN MENU */
+.mainMenuButton { border:3px solid rgba(200,200,200,0.3); width:80px; height:80px; border-radius:5px; float:left; margin:2.2em 0em 0em 1.9em; }
+.mainMenuButton span { display:table-cell; width:80px; padding:40px 0px 0px 0px; text-align:center; color:#fff; font-size:65%; }
+
+.bustraker { background:url(../img/bustracker.png) rgba(0,0,0,0.2) no-repeat center 7px; background-size:auto 40%; }
+.dailyInfo { background:url(../img/dailyinfo.png) rgba(0,0,0,0.2) no-repeat center 7px; background-size:auto 40%; }
+.mealCalendar { background:url(../img/mealcalendar.png) rgba(0,0,0,0.2) no-repeat center 7px; background-size:auto 40%; }
+.notification { background:url(../img/notifications.png) rgba(0,0,0,0.2) no-repeat center 7px; background-size:auto 40%; }
+.teachersNote { background:url(../img/teachersnote.png) rgba(0,0,0,0.2) no-repeat center 7px; background-size:auto 40%; }
+.sendMessage { background:url(../img/sendmessage.png) rgba(0,0,0,0.2) no-repeat center 7px; background-size:auto 40%; }
+.parentsNews { background:url(../img/parentsnews.png) rgba(0,0,0,0.2) no-repeat center 7px; background-size:auto 40%; }
+.grupNews { background:url(../img/groupnews.png) rgba(0,0,0,0.2) no-repeat center 7px; background-size:auto 40%; }
+.contact { background:url(../img/contact.png) rgba(0,0,0,0.2) no-repeat center 7px; background-size:auto 40%; }
+
+/* INDEXES */
+.index2 { width:0em; position:fixed; z-index:3; top:5em; bottom:3em; left:100%; right:0em; overflow:auto; background:url(../img/bg.jpg) no-repeat center center; background-size:120% 100%; }
+.index3 { width:0em; position:fixed; z-index:4; top:5em; bottom:3em; left:100%; right:0em; overflow:auto; background:url(../img/bg.jpg) no-repeat center center; background-size:120% 100%; }
+
+
+/* BUSTRACKER */
+.teacherTracker { width:100%; height:100%; background:#f00; border:2px solid #f00; }
+.busSelect { background:#fff; color:#000; border:2px solid #DD0003; border-radius:5px; width:85%; height:3em; font-size:110%; margin:3em 0em 0em 0em; }
+.trackerTriger { background:url(../img/tracker_red.png) no-repeat center center; width:157px; height:68px; margin:auto; margin-top:3em; cursor:pointer; transition:1s;  }
+.trackerTrigerOn { background:url(../img/tracker_green.png) no-repeat center center; }
+.trackerEnableButton { background:url(../img/tracker_button.png) no-repeat center 4px; width:68px; height:68px; }
+.trackMiniMap { width:85%; height:10em; margin:auto; margin-top:3em; }
+
+
+/* DAILYINFO */
+.dailyInfoDateChanger { width:90%; margin:auto;  margin-top:2.5em; margin-bottom:0.5em; padding:0em 0em 0em 0em; text-align:center; color:#fff; font-size:110%; background:#d52027; border:2px solid #8d0102; }
+.dailyInfoDateInpt { width:40%; background-color:transparent; border:0px; height:2em; font-size:100%; color:#fff; outline:none;  }
+.dailyInfoBlock { width:90%; font-size:120%; color:#fff; margin:auto; margin-top:1em; margin-bottom:0.5em; border-bottom:1px solid #fff; padding:0em 0em 0.2em 0em; }
+.dailyInfoCont { width:90%; margin:auto; margin-top:1em; margin-bottom:0.5em; }
+.dailyInfoHead { float:left; width:50%; padding:0.2em 0em 0.2em 0em; font-size:85%; color:#fff; margin-bottom:0.2em; }
+.dailyInfoCheck {  }
+.dailyInfoSubmit { width:70%; margin:auto; background:url(../img/approve.png) #aa0101 no-repeat 10px center; padding:0.5em 0em 0.5em 3em; font-size:110&; color:#fff; border:2px solid #8d0102; margin-top:1.5em; margin-bottom:2em; }
+
+/* CALENDAR */
+.mealCalendarHead { width:85%; margin:auto; margin-top:2em; text-align:center; font-size:120%; color:#fff; padding:0.5em 0em 0em 0em; }
+.calendarCont { width:85%; margin:auto; margin-top:2em; }
+.calendarTable { width:100%; background:#fff; }
+.calendarHead td { background:#b20101; color:#fff; text-align:center; vertical-align:middle; font-size:100%; padding:0.5em 0em 0.5em 0em; }
+.calendarTable td { height:2em; color:#000; text-align:center; vertical-align:middle; border-bottom:1px solid #0f4375; border-left:1px solid #0f4375; }
+.calendarTable td:last-child { border-right:1px solid #aaa; }
+.mealSubHead { width:85%; margin:auto;  border:1px solid #920203; padding:0.4em 0em 0.4em 2em; background:url(../img/mealcalendar.png) #b70101 no-repeat 10px center; background-size:auto 40%; color:#fff; font-size:100%; }
+.mealDate { width:85%; margin:auto; text-align:center; font-size:90%; color:#fff; padding:0.3em 0em 0.3em 0em; margin-top:0.3em; margin-bottom:0.3em; }
+.back { background:url(../img/back.png) no-repeat 10px center; background-size:auto 100%; margin:3em 0em 0em 0em; padding:0.1em 0em 0.1em 3em; font-size:90%; color:#fff; }
+.mealListCont { background:#fff; margin:auto; width:85%; margin-top:0.5em; }
+.mealLine { background:#fff; border-bottom:1px solid #ccc; padding:0.1em 0em 0.1em 0em; margin-bottom:0.1em; margin-top:0.1em; }
+.mealLineHead { color:#114272; padding:0.1em 0em 0.1em 1em; font-weight:700; font-size:100%; }
+.mealLineCont { color:#000; padding:0.1em 0em 0.3em 1em; font-size:90%; }
+
+/* NOTIFICATIONS */
+.notificationHead { width:85%; height:2.6em; margin:auto; text-align:center; font-size:1.2em; margin-top:1.3em; margin-bottom:1em; color:#fff; padding:0em 0em 0em 3em; background:#b60101; border:1px solid #93000D; 
+border-radius:8px; }
+.notificationHead span { display:table-cell; height:2.6em; vertical-align:middle; border-left:1px solid #93000D; padding:0em 0em 0em 2em; }
+.noteBaloon { background:url(../img/note_arrow.png) no-repeat 0px 20px; padding:0px 0px 0px 10px; width:80%; margin-bottom:1em; }
+.noteTxt { background:#fff; font-size:0.8em; color:#000; padding:1em; border-radius:0.5em; }
+.noteDate { font-size:0.7em; color:#990000; font-weight:700; line-height:110%; }
+
+
+/* SEND MESSAGE */
+.sendMessageCont { text-align:center; }
+.messageInpt { width:75%; height:1.8em; margin:auto; font-size:0.9em; margin-top:1em; margin-bottom:1em; color:#000; padding:0em 0.1em 0em 0.1em; background:#fff; border:1px solid #93000D; }
+.messageTxt { width:75%; height:8em; margin:auto; font-size:0.9em; margin-top:1em; margin-bottom:1em; color:#000; padding:0em 0.1em 0em 0.1em; background:#fff; border:1px solid #93000D; }
+.messageSbmt {  width:75%; height:2.4em; margin:auto; font-size:0.9em; margin-top:1em; margin-bottom:1em; color:#fff; padding:0em 0em 0em 0em; background:#b60101; border:1px solid #93000D; border-radius:5px; }
+
+/* PRENTS NEWS */
+.pressLine { width:85%; height:2.5em; background:#fff; border-radius:8px; margin:auto; margin-bottom:1em; text-align:center; }
+.pressLine span { height:2.5em; display:table-cell; vertical-align:middle; color:#000; font-size:1em; }
+.pressFrame { width:100%; height:20em; border:1px solid #f00; }
+
+/* CONTACT */
+.contactimg { width:85%; height:12em; margin:auto; background-size:100% auto; }
+.contactInfo { width:85%; margin:auto; background:#fff; padding:1em; font-size:0.8em; color:#000; line-height:1.4em; }
+.contactInfo span { display:inline-block; width:60px; font-weight:700; }

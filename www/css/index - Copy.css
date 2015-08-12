@@ -1,0 +1,556 @@
+@charset "utf-8";
+/* CSS Document */
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  font-size:100%;
+  vertical-align:baseline;
+  background:transparent;
+  font-weight:normal;
+}
+
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background:#0e578e;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    margin:0px;
+    padding:0px;
+    width:100%;
+}
+
+.row{
+	margin-right:0px;
+	margin-left:0px;
+}
+
+
+
+/* Landscape layout (with min-width) */
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    
+}
+
+.loginArea{
+	margin:10px;
+}
+
+
+.redBar{
+	height:20px;
+	background:#b00101;
+	color:white;
+	padding:8px 0px;
+}
+
+.whiteBar{
+	height:60px;
+	background:#FFFFFF; 
+}
+
+.logo{
+	margin-top: -75px;
+}
+
+.kullaniciAdi{
+	margin-bottom:10px;
+}
+
+.sifre{
+	margin-bottom:10px;
+}
+
+.loginArea{
+	background:#FFFFFF;
+	-webkit-border-top-right-radius: 10px;
+	-webkit-border-top-left-radius: 10px;
+	-moz-border-radius-topright: 10px;
+	-moz-border-radius-topleft: 10px;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	text-align:center;
+	padding:20px;
+	position:relative;
+	z-index:5;
+	width:80%;
+	margin:auto;
+	margin-top:20%;
+}
+
+.loginTitle{
+	font-size:16px;
+	font-weight:bold;
+	color:#114272;
+	display:block;
+}
+
+
+.loginButton button{
+	width:250px;
+	background:#b50101;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	padding:8px 0px;
+	color:white;
+	border:1px solid #920505;
+}
+
+
+.sifremiUnuttum{
+	text-align:center;
+	padding:8px 0px;
+	-webkit-border-bottom-right-radius: 10px;
+	-webkit-border-bottom-left-radius: 10px;
+	-moz-border-radius-bottomright: 10px;
+	-moz-border-radius-bottomleft: 10px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	background:#114272;
+	width:80%;
+	color:white;
+	margin:auto;
+}
+
+.homeFooter{
+	background:#FFFFFF;
+	text-align:center;
+	padding:10px 0px;
+	position:fixed;
+	width:100%;
+	z-index:2;
+}
+
+.homeFooter span{
+	color:#c54545;
+}
+
+.giris{
+	position:absolute;
+	z-index:1;
+}
+
+.subPageHead {
+	width:50%;
+	overflow:hidden;
+	color:#fff;
+	font-size:110%;
+	left:50%;
+	margin-left:-16%;
+	position:absolute;
+	z-index:2;
+	margin-top:10px;
+}
+
+.mainPage{
+	background:url(../img/bg.jpg) no-repeat; 
+	background-size:100% 100%;
+	overflow:hidden;
+	position:fixed;
+	z-index:6;
+	display:none;
+}
+
+.subWhiteBar{
+	padding:10px 0px;
+	background:#FFFFFF;
+	padding-left:140px;
+	font-size:18px;
+	color:#114272;
+}
+
+.subRedBar{
+	height: 35px;
+background: #b00101;
+color: white;
+
+font-size: 30px;
+padding-right: 3px;
+}
+
+.studendtPhoto{
+	border:3px solid white;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	width: 104px;
+	text-align: center;
+	margin-top: -85px;
+margin-left: 3px;
+}
+
+.mainContent{
+	margin-top:5%;	
+}
+
+.menuItem{
+	text-align:center;
+	color:white;
+	margin-bottom:15px;
+}
+
+
+
+.menuMarginDiv{
+	background:rgba(0,0,0,0.2);
+	border:2px solid white;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	padding:10px 3px;
+	height:84px;
+}
+
+.menuMarginDiv span{
+	display:inline-block;
+}
+	.busTracker{
+		padding-top:10px;
+	}
+	
+	.notification{
+		padding-top:10px;
+	}
+	
+	.gazete{
+	
+	}
+	
+	.grupGazete{
+	
+	}
+	
+	.yemekMenu{
+	
+	}
+	
+	.ogretmenNotu{
+	
+	}
+	
+	.okulaMesaj{
+		padding-top:10px;
+	}
+	
+	.gunSonu{
+	
+	}
+	
+	.ulas{
+	
+	}
+
+.subFooter{
+	background:#FFFFFF;
+	text-align:center;
+	padding:10px 0px;
+	position:fixed;
+	width:100%;
+	z-index:8;
+}
+
+
+/*Sub Page*/
+
+
+.subPage{
+	background:url(../img/bg.jpg) no-repeat;
+	background-size:100% 100%;
+	overflow:hidden;
+	position:fixed;
+	z-index:12;
+	display:none;
+}
+
+
+@keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+@-webkit-keyframes fade {
+    from { opacity: 1.0; }
+    50% { opacity: 0.4; }
+    to { opacity: 1.0; }
+}
+ 
+.blink {
+    animation:fade 3000ms infinite;
+    -webkit-animation:fade 3000ms infinite;
+}
+
+
+/* ÖĞRETMENİN NOTU */
+.ogretmennotuIndex { 
+	width:86%; 
+	background:#f4f4f4; 
+	padding:10px; 
+	overflow:auto; 
+	position:absolute;
+	z-index:1;
+	left:50%;
+	margin-left:-43%;
+}
+
+
+
+/* OKULA MESAJ */
+.okulaMesajIndex { 
+	width:86%; 
+	background:#f4f4f4; 
+	padding:10px; 
+	overflow:auto; 
+	position:absolute;
+	z-index:1;
+	left:50%;
+	margin-left:-43%;
+}
+
+.okulaMesajLine {
+	border-bottom:1px solid #e5e5e5;
+	border-top:1px solid #fff;
+	padding-bottom:5px;
+	padding-top:5px;
+}
+
+.okulaMesajLine:nth-child(1) {
+	border-top:0px;
+}
+
+.okulaMesajLine:last-child {
+	border-bottom:0px;
+}
+
+.okulaMesajLinenth-child(1) {
+	border-top:0px;
+}
+
+.okulaMesajHead {
+	color:#5e7694;
+	font-size:120%;
+}
+
+.okulaMesajTxt {
+	color:#444;
+	font-size:100%;
+}
+
+.button {
+	background: -webkit-linear-gradient(#b70101, #a80101) !important;
+	background: -o-linear-gradient(#b70101, #a80101) !important; 
+	background: -moz-linear-gradient(#b70101, #a80101) !important;
+	background: linear-gradient(#b70101, #a80101) !important; 
+	color:#fff;
+	text-align:center;
+	padding:8px 0px;
+}
+
+.okulaMesajYeni {
+	width:86%; 
+	background:#fff; 
+	padding:8px 0px 8px 0px; 
+	margin-top:5px; 
+	position:absolute;
+	z-index:1;
+	left:50%;
+	margin-left:-43%;
+	font-size:120%;
+}
+
+.okulaMesajTextarea { 
+	width:86%; 
+	background:#fff; 
+	padding:10px; 
+	overflow:auto; 
+	position:absolute;
+	z-index:2;
+	left:50%;
+	margin-left:-43%;
+	margin-top:-1000px;
+}
+
+.okulaMesajTextareaButtons { 
+	width:86%; 
+	position:absolute;
+	z-index:2;
+	left:50%;
+	margin-left:-43%;
+	margin-top:1000px;
+}
+
+.okulaMesajCancel { float:left; }
+.okulaMesajSend { float:right; }
+
+.okulMesajInpt {
+	width:100%;
+	border:1px solid #bcbcbc;
+	font-size:100%;
+	color:#5e7694;
+	margin:5px 0px;
+	background:#fff;
+	font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+}
+
+.okulMesajTextareas {
+	width:100%;
+	border:1px solid #bcbcbc;
+	font-size:100%;
+	color:#5e7694;
+	margin:5px 0px;
+	background:#fff;
+	font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+	padding:3px;
+}
+
+/* GÜN SONU */
+.gunsonuIndex {
+	width:100%;
+	color:#fff;
+	font-size:110%;
+	padding:0px;
+	overflow:auto;
+}
+
+.gunsonuSubHead {
+	width:100%;
+	font-size:130%;
+	padding:5px 0px;
+	font-weight:700;
+	border-bottom:1px solid #fff;
+	margin-bottom:5px;
+}
+
+.gunsonuSubHead2 {
+	width:100%;
+	font-size:130%;
+	padding:5px 0px;
+	font-weight:700;
+	border-bottom:1px solid #fff;
+	margin-bottom:5px;
+	margin-top:15px;
+}
+
+.gunsonuFormItem { 
+	width:45%; 
+	margin:8px 0px 0px 0px;
+}
+
+.gunsonuFormCheck {
+	width:19px;
+	height:16px;
+	float:left;
+	background:url(../img/formcheck.png) no-repeat;
+}
+
+.gunsonuFormChecked {
+	background:url(../img/formchecked.png) no-repeat !important;
+}
+
+.gunsonuFormTxt {
+	float:left;
+	margin-left:15px;
+	font-size:110%;
+	color:#fff;
+}
+
+.gunsonuSub3SubHeads {
+	text-align:right;
+}
+
+.gunsonuSub3SubHeads span {
+	display:inline-block;
+	padding:0px 20px 0px 20px;
+	font-weight:700;
+	font-size:110%;
+	color:#fff;
+}
+
+.subCheck { margin:0px 20px 0px 20px; }
+.gunsonuOnay { margin:20px 0px 0px 0px; }
+
+
+
+/* GÜN SONU */
+.contactIndex {
+	width:86%; 
+	position:absolute;
+	z-index:1;
+	left:50%;
+	margin-left:-43%;
+}
+
+.contactBranchSub {
+	width:86%; 
+	position:absolute;
+	z-index:2;
+	left:50%;
+	margin-left:-43%;
+	background:#f4f4f4;
+	margin-top:-1000px;
+	line-height:140%;
+	font-size:120%;
+	padding:6px;
+}
+
+.contactBranchSub span { font-weight:700; }
+
+.contactBranchSub p { 
+	font-weight:700; 
+	padding:10px 0px 10px 0px;
+	font-size:150%;
+	margin:0px;
+}
+
+.contactBranchHead{
+	margin:20px 0px 20px 0px;
+}
+
+.contactBranchLine {
+	padding:10px 0px 10px 10px;
+	font-size:150%;
+	font-weight:700;
+	color:#000;
+	border-bottom:1px solid #e5e5e5;
+	border-top:1px solid #fff;
+	background:#f4f4f4;
+}
+
+.contactBranchLine:nth-child(1){
+	border-top:0px;
+}
+
+.branchImgCont { 
+	width:100%; 
+	height:180px;
+	overflow:hidden;
+	border:2px solid #bcbcbc;
+	margin-bottom:10px;	
+}
+
+.contactBack {
+	display:inline-block;
+	padding:10px 15px 10px 10px;
+	color:#fff;
+	font-size:110%;
+}
+

@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="fontaw/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <title>Kaptan Yuva</title>
+    </head>
+    <body>
+    
+	<div class="app"></div>	
+    	
+
+
+<script language="javascript" type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script language="javascript" type="text/javascript" src="cordova.js"></script>
+<script language="javascript" src="js/bootstrap.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/index.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+<script type="text/javascript" src="js/calendar.js"></script>
+<script language="javascript" type="text/javascript">
+	CID = '6';
+	URL = "http://predoova.com/_mobile/kaptan/mct_trans_kaptan.php";
+	app.initialize();
+	//document.addEventListener("backbutton", backKeyDown, false);
+	document.addEventListener("deviceready", onDeviceReady, false);
+	function backKeyDown(){ return false; }
+	x = $(document).width();
+	y = $(document).height();
+	
+	function goHome(){
+		trackerListener = 0;
+		$('.index2').html('');
+		$('.index2').animate({'width':'0em','left':'100%'},200);
+		$('.index3').html('');
+		$('.index3').animate({'width':'0em','left':'100%'},250);
+	}
+	
+	lang = '';
+	noBusSelectError = '';
+	function langTxts(lng){
+		if(lng == 'tr'){
+			noBusSelectError = 'Servis seçmeden takip sistemini aktive edemezsiniz!';
+		}
+		if(lng == 'en'){
+			noBusSelectError = 'You cat enable without selecting bus!';
+		}
+		if(lng == 'ru'){
+			noBusSelectError = '';
+		}
+	}
+	
+	function onDeviceReady() {
+        navigator.geolocation.getCurrentPosition(locationSuccess, onError);
+    }
+	
+	$(document).ready(function(e) {
+		opening = 'first';
+		lang = 'tr';
+		langTxts(lang);
+		formdata = {CID:CID,opening:opening,lang:lang}
+        $.ajax({
+			type       : "POST",
+			url        : URL,
+			crossDomain: true,
+			data       : formdata,
+			success    : function(response) {
+				$('.app').html(response);
+			},
+			error      : function(error) {
+				alert(error);               
+			}
+		});
+    });
+
+	
+
+	function changeLang(lang){
+		opening = 'first';
+		lang = lang;
+		langTxts(lang);
+		formdata = {CID:CID,opening:opening,lang:lang}
+        $.ajax({
+			type       : "POST",
+			url        : URL,
+			crossDomain: true,
+			data       : formdata,
+			success    : function(response) {
+				$('.app').html(response);
+			},
+			error      : function(error) {
+				alert(error);               
+			}
+		});
+	}
+	
+	
+	
+	function checkUser(){
+		user = $('#user').val();
+		pass = $('#pass').val();
+		formdata = {user:user,pass:pass}
+        $.ajax({
+			type       : "POST",
+			url        : URL+'?logcheck',
+			crossDomain: true,
+			data       : formdata,
+			success    : function(response) {
+				if(response == 'guaranted'){
+					formdata = {};
+					$.ajax({
+						type       : "POST",
+						url        : URL+'?mainPage',
+						crossDomain: true,
+						data       : formdata,
+						success    : function(response) {
+							$('.app').html(response);
+						},
+						error      : function(error) {
+							alert(error);               
+						}
+					});
+				} else {
+					alert(response);
+				}
+			},
+			error      : function(error) {
+				alert(error);               
+			}
+		});
+	}
+	
+	
+	
+	/* BUSTRACKER */
+	busID = 0;
+	trackerListener = 0;
+	function bustrackerAdmin(){
+		formdata = {};
+		$.ajax({
+			type       : "POST",
+			url        : URL+'?bustrackerAdmin',
+			crossDomain: true,
+			data       : formdata,
+			success    : function(response) {
+				$('.index').html(response);
+			},
+			error      : function(error) {
+				alert(error);               
+			}
+		});
+	}
+	
+	function selectBus(bus){
+		busID = bus;
+	}
+	
+	function trackerTrigerAction(){
+		if(busID != 0){
+		if(trackerListener == 0){
+			$('.trackerTriger').addClass('trackerTrigerOn');
+			$('.trackerEnableButton').animate({'margin-left':'89px'});
+			trackerListener = 1;
+			track();
+		} else {
+			$('.trackerTriger').removeClass('trackerTrigerOn');
+			$('.trackerEnableButton').animate({'margin-left':'0px'});
+			trackerListener = 0;
+		}
+		} else {
+			alert(noBusSelectError);
+		}
+	}
+	
+	mlatitude = '';
+	mlongitude = '';	
+	function tracker(latt,lngg) {
+		var latlngPos = new google.maps.LatLng(latt, lngg);		
+		var myOptions = {
+		   zoom: 15,
+		   center: latlngPos,
+		   mapTypeId: google.maps.MapTypeId.ROADMAP
+		};		
+		var map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
+				
+		var markerPos = new google.maps.LatLng(latt,lngg);
+		var marker = new google.maps.Marker({
+		   position: markerPos,
+		   map: map,
+		   title: "Bustracker"
+		});
+	}
+	
+	function track(){
+		$('.trackMiniMap').html('<div id="map-canvas" style="width:100%;height:100%;"></div>');
+		function getLocation1(){
+			navigator.geolocation.getCurrentPosition(locationSuccess, onError);
+			tracker(mlatitude,mlongitude);
+			formdata = {lat:mlatitude,lng:mlongitude,bus:busID};
+			$.ajax({
+				type       : "POST",
+				url        : URL+'?bustrackerAdminTracking',
+				crossDomain: true,
+				data       : formdata,
+				success    : function(response) {
+				},
+				error      : function(error) {
+					alert(error);               
+				}
+			});					
+			if(trackerListener == 1){
+				getLocation2();
+			} else {
+				$('.trackMiniMap').html('');
+			}
+		}
+		
+		function getLocation2(){
+			setTimeout(getLocation1,60000);
+		}
+		getLocation1();
+	}
+	
+	clatitude = '';
+	clongitude = '';
+	function bustrackerClient(){
+		trackerListener = 1;
+		$('.index2').animate({'width':'100%','left':'0em'},250);
+		$('.index2').html('<div id="map-canvas" style="width:100%;height:100%;"></div>');
+		function getLocation1(){
+			//navigator.geolocation.getCurrentPosition(locationSuccess, onError);
+			formdata = {};
+			$.ajax({
+				type       : "POST",
+				url        : URL+'?bustrackerClientTracking',
+				crossDomain: true,
+				data       : formdata,
+				success    : function(response) {
+					coords = response.split("|||");
+					clatitude = coords[0];
+					clongitude = coords[1];
+					tracker(clatitude,clongitude);
+					if(trackerListener == 1){
+						getLocation2();
+					}
+				},
+				error      : function(error) {
+					alert(error);               
+				}
+			});		
+			
+						
+			
+		}
+		
+		function getLocation2(){
+			setTimeout(getLocation1,60000);
+		}
+		getLocation1();
+	}
+	
+	
+	/* GEOLOCATION */
+	function locationSuccess(position) {
+       mlatitude = position.coords.latitude
+       mlongitude = position.coords.longitude
+       /*position.coords.altitude
+       position.coords.accuracy
+       position.coords.altitudeAccuracy
+       position.coords.heading
+       position.coords.speed
+       position.timestamp*/
+    }
+	function onError(error) {
+        alert('Geting Location Error');
+    }
+	
+	
+	
+	/* MEAL CALENDAR  */
+	function mealCalendar(){
+		formdata = {};
+		$.ajax({
+			type       : "POST",
+			url        : URL+'?mealCalendar',
+			crossDomain: true,
+			data       : formdata,
+			success    : function(response) {
+				$('.index2').animate({'width':'100%','left':'0em'},250);
+				setTimeout(function(){ $('.index2').html(response); },300);
+				setTimeout(function(){ calendar(); },350);
+			},
+			error      : function(error) {
+				alert(error);               
+			}
+		});
+	}
+	
+	
+	function getMeal(mealDate){
+		formdata = {mealDate:mealDate};
+		$.ajax({
+			type       : "POST",
+			url        : URL+'?getMeal',
+			crossDomain: true,
+			data       : formdata,
+			success    : function(response) {
+				$('.index3').animate({'width':'100%','left':'0em'},250);
+				setTimeout(function(){ $('.index3').html(response); },300);
+			},
+			error      : function(error) {
+				alert(error);               
+			}
+		});
+	}
+	
+	function getMailClose(){
+		$('.index3').html('');
+		$('.index3').animate({'width':'0em','left':'100%'},250);
+	}
+	
+	
+	/* DAILY INFO */
+	function dailyInfo(){
+		formdata = {};
+		$.ajax({
+			type       : "POST",
+			url        : URL+'?dailyInfo',
+			crossDomain: true,
+			data       : formdata,
+			success    : function(response) {
+				$('.index2').animate({'width':'100%','left':'0em'},250);
+				setTimeout(function(){ $('.index2').html(response); },300);
+			},
+			error      : function(error) {
+				alert(error);               
+			}
+		});
+	}
+	
+	function dailyInfoDate(dailyInfoDate){
+		formdata = {dailyInfoDate:dailyInfoDate};
+		$.ajax({
+			type       : "POST",
+			url        : URL+'?dailyInfo',
+			crossDomain: true,
+			data       : formdata,
+			success    : function(response) {
+				$('.index2').animate({'width':'100%','left':'0em'},250);
+				setTimeout(function(){ $('.index2').html(response); },300);
+			},
+			error      : function(error) {
+				alert(error);               
+			}
+		});
+	}
+	
+	
+	/* NOTIFICATIONS  */
+	function notifications(){
+		formdata = {};
+		$.ajax({
+			type       : "POST",
+			url        : URL+'?notifications',
+			crossDomain: true,
+			data       : formdata,
+			success    : function(response) {
+				$('.index2').animate({'width':'100%','left':'0em'},250);
+				setTimeout(function(){ $('.index2').html(response); },300);
+			},
+			error      : function(error) {
+				alert(error);               
+			}
+		});
+	}
+	
+	/* TEACHERS NOTE  */
+	function teachersNote(){
+		formdata = {};
+		$.ajax({
+			type       : "POST",
+			url        : URL+'?teachersNote',
+			crossDomain: true,
+			data       : formdata,
+			success    : function(response) {
+				$('.index2').animate({'width':'100%','left':'0em'},250);
+				setTimeout(function(){ $('.index2').html(response); },300);
+			},
+			error      : function(error) {
+				alert(error);               
+			}
+		});
+	}
+	
+	/* SEND MESSAGE  */
+	function sendMessage(){
+		formdata = {};
+		$.ajax({
+			type       : "POST",
+			url        : URL+'?sendMessage',
+			crossDomain: true,
+			data       : formdata,
+			success    : function(response) {
+				$('.index2').animate({'width':'100%','left':'0em'},250);
+				setTimeout(function(){ $('.index2').html(response); },300);
+			},
+			error      : function(error) {
+				alert(error);               
+			}
+		});
+	}
+	
+	function sendMessageSubmit(){
+		head = $('#messaagehead').val();
+		message = $('#messageText').val();
+		formdata = {head:head,message:message};
+		$.ajax({
+			type       : "POST",
+			url        : URL+'?sendMessageSubmit',
+			crossDomain: true,
+			data       : formdata,
+			success    : function(response) {
+				//$('.index2').animate({'width':'100%','left':'0em'},250);
+				$('.sendMessageCont').html(response);
+			},
+			error      : function(error) {
+				alert(error);               
+			}
+		});
+	}
+	
+	
+	/* PARENTS NEWS */
+	function parentsNews(){
+		formdata = {};
+		$.ajax({
+			type       : "POST",
+			url        : URL+'?parentsNews',
+			crossDomain: true,
+			data       : formdata,
+			success    : function(response) {
+				$('.index2').animate({'width':'100%','left':'0em'},250);
+				setTimeout(function(){ $('.index2').html(response); },300);
+			},
+			error      : function(error) {
+				alert(error);               
+			}
+		});
+	}
+	
+	function openParentsNews(pressID){
+		formdata = {pressID:pressID};
+		$.ajax({
+			type       : "POST",
+			url        : URL+'?openParentsNews',
+			crossDomain: true,
+			data       : formdata,
+			success    : function(response) {
+				$('.index3').animate({'width':'100%','left':'0em'},250);
+				setTimeout(function(){ $('.index3').html(response); },300);
+			},
+			error      : function(error) {
+				alert(error);               
+			}
+		});
+	}
+
+	/* GROUP NEWS */
+	function grupNews(){
+		formdata = {};
+		$.ajax({
+			type       : "POST",
+			url        : URL+'?grupNews',
+			crossDomain: true,
+			data       : formdata,
+			success    : function(response) {
+				$('.index2').animate({'width':'100%','left':'0em'},250);
+				setTimeout(function(){ $('.index2').html(response); },300);
+			},
+			error      : function(error) {
+				alert(error);               
+			}
+		});
+	}
+	
+	/* CONTACT */
+	function contact(){
+		formdata = {};
+		$.ajax({
+			type       : "POST",
+			url        : URL+'?contact',
+			crossDomain: true,
+			data       : formdata,
+			success    : function(response) {
+				$('.index2').animate({'width':'100%','left':'0em'},250);
+				setTimeout(function(){ $('.index2').html(response); },300);
+			},
+			error      : function(error) {
+				alert(error);               
+			}
+		});
+	}
+	
+	function openContact(school){
+		formdata = {school:school};
+		$.ajax({
+			type       : "POST",
+			url        : URL+'?openContact',
+			crossDomain: true,
+			data       : formdata,
+			success    : function(response) {
+				$('.index3').animate({'width':'100%','left':'0em'},250);
+				setTimeout(function(){ $('.index3').html(response); },300);
+			},
+			error      : function(error) {
+				alert(error);               
+			}
+		});
+	}
+	
+	function getContactClose(){
+		$('.index3').html('');
+		$('.index3').animate({'width':'0em','left':'100%'},250);
+	}
+</script>
+	</body>
+</html>
