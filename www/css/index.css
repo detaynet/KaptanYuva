@@ -55,9 +55,9 @@ body {
 .logKaptanLink a { color:#af0101; font-size:100%; text-decoration:none; }
 .logKaptanLink a:hover { color:#000; text-decoration:none; }
 .loginIndex{height:100%;}
-.login_user { background:url(../img/log_user.png) no-repeat; background-size:100% 100%; border:0px; width:80%; height:15%; padding:0px 0px 0px 3.5em; color:#000; margin:0px 0px 1em 10%; }
-.login_pass { background:url(../img/log_pass.png) no-repeat; background-size:100% 100%; border:0px; width:80%; height:15%; padding:0px 0px 0px 3.5em; color:#000; margin:0px 0px 1em 10%; }
-.login_sbmt { background:url(../img/log_submit.png) no-repeat; background-size:100% 100%; border:0px; width:80%; height:15%; color:#fff; margin:0px 0px 1em 10%; outline:none; }
+.login_user { background:url(../img/log_user.png) no-repeat; background-size:100% 100%; border:0px; width:80%; height:15%; padding:0px 0px 0px 3.5em; color:#000; font-size:100%; margin:0px 0px 1em 10%; }
+.login_pass { background:url(../img/log_pass.png) no-repeat; background-size:100% 100%; border:0px; width:80%; height:15%; padding:0px 0px 0px 3.5em; color:#000; font-size:100%; margin:0px 0px 1em 10%; }
+.login_sbmt { background:url(../img/log_submit.png) no-repeat; background-size:100% 100%; border:0px; width:80%; height:15%; color:#fff; margin:0px 0px 1em 10%; font-size:100%; outline:none; }
 
 /* INDEX */
 .head { width:100%; }
