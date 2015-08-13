@@ -77,9 +77,11 @@
 	}
 	
 	function onDeviceReady() {
-        navigator.geolocation.getCurrentPosition(locationSuccess, onError);
+        navigator.geolocation.getCurrentPosition(locationSuccess, onError,{
+			 enableHighAccuracy: true
+     	});
     }
-	
+		
 	$(document).ready(function(e) {
 		opening = 'first';
 		lang = 'tr';
