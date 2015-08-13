@@ -1,4 +1,4 @@
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.KaptanYuva" version="2.0.0">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.KaptanYuva" version="32.0.0">
   <name>KaptanYuva</name>
   <description></description>
   <author href="http://phonegap.com" email="support@phonegap.com">Detaynet</author>
