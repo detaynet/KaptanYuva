@@ -141,6 +141,7 @@
 						data       : formdata,
 						success    : function(response) {
 							$('.app').html(response);
+							BT = $('#trackerTimeout').val();
 						},
 						error      : function(error) {
 							alert(error);               
@@ -242,7 +243,7 @@
 		}
 		
 		function getLocation2(){
-			setTimeout(getLocation1,60000);
+			setTimeout(getLocation1,BT);
 		}
 		getLocation1();
 	}
